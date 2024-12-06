@@ -5,10 +5,13 @@ import 'package:book_cover/pages/book_first/book_content_list/book_content_list_
 import 'package:book_cover/pages/book_first/book_content_list/book_content_list_view.dart';
 import 'package:book_cover/pages/book_first/book_first_binding.dart';
 import 'package:book_cover/pages/book_first/book_first_view.dart';
+import 'package:book_cover/pages/book_four/book_four_binding.dart';
+import 'package:book_cover/pages/book_four/book_four_view.dart';
 import 'package:book_cover/pages/book_second/book_second_binding.dart';
 import 'package:book_cover/pages/book_second/book_second_view.dart';
 import 'package:book_cover/pages/book_second/note_add/note_add_binding.dart';
 import 'package:book_cover/pages/book_second/note_add/note_add_view.dart';
+import 'package:book_cover/pages/book_second/note_add/toast.dart';
 import 'package:book_cover/pages/book_tab/book_tab_binding.dart';
 import 'package:book_cover/pages/book_tab/book_tab_view.dart';
 import 'package:book_cover/pages/book_third/book_third_binding.dart';
@@ -40,7 +43,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       getPages: Books,
-      initialRoute: '/book_tab',
+      initialRoute: '/',
       theme: ThemeData(
         useMaterial3: true,
         primaryColor: primaryColor,
@@ -93,7 +96,9 @@ class MyApp extends StatelessWidget {
 }
 
 List<GetPage<dynamic>> Books = [
+  GetPage(name: '/', page: () => const BookFourView(), binding: BookFourBinding()),
   GetPage(name: '/book_tab', page: () => BookTabPage(), binding: BookTabBinding()),
+  GetPage(name: '/book_toast', page: () => const ToastLocal()),
   GetPage(name: '/book_first', page: () => BookFirstPage(), binding: BookFirstBinding()),
   GetPage(name: '/book_second', page: () => BookSecondPage(), binding: BookSecondBinding()),
   GetPage(name: '/book_third', page: () => BookThirdPage(), binding: BookThirdBinding()),
